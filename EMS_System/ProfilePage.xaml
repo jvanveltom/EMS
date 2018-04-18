@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EMS_System"
         mc:Ignorable="d"
-        Title="ProfilePage" Height="600" Width="1000">
+        Title="ProfilePage" Height="600" Width="1000" ResizeMode="NoResize">
     <Grid>
         
     </Grid>
