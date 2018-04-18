@@ -10,9 +10,8 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="bttn_home" Content="Startpagina" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="5,16,-5,0" Height="26" Background="#FF0E1219" Foreground="White" Grid.ColumnSpan="2"/>
-        <Button x:Name="bttn_absence" Content="Aanwezigheidspagina" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="5,42,-5,0" Height="26" Foreground="White" Background="#FF0E1219" Grid.ColumnSpan="2"/>
-        <Button x:Name="bttn_profiel" Content="Profielpagina" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="5,68,-5,0" Height="26" Background="#FF0E1219" Foreground="White" Grid.ColumnSpan="2"/>
-
+        <Button x:Name="bttn_home" Content="Startpagina" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="28,16,0,0" Height="26" Background="#FF0E1219" Foreground="White" MouseEnter="bttn_home_MouseEnter"/>
+        <Button x:Name="bttn_absence" Content="Aanwezigheidspagina" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="28,42,0,0" Height="26" Foreground="White" Background="#FF0E1219"/>
+        <Button x:Name="bttn_profiel" Content="Profielpagina" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="28,68,0,0" Height="26" Background="#FF0E1219" Foreground="White"/>
     </Grid>
 </UserControl>
