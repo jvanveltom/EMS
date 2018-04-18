@@ -1,0 +1,43 @@
+﻿<Window x:Class="EMS_System.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:control="clr-namespace:EMS_System.Resource.Control"
+        mc:Ignorable="d"
+        DataContext="{StaticResource MainViewModel}"
+        Title="MainWindow" Height="300" Width="600">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition Width="200" MinWidth="180" MaxWidth="250"/>
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Content="{Binding MainContentElement}"/>
+        
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+        
+        <!-- Navigation panel -->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="3"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <DockPanel Grid.Row="0">
+                <Button DockPanel.Dock="Right" Command="{Binding SearchCommand}" CommandParameter="{Binding Text, ElementName=SearchTextBox}" Style="{StaticResource Button.Search}"/>
+                <control:SearchTextBox x:Name="SearchTextBox" BackgroundText="Search Person" Text="{Binding SearchInput}"/>
+            </DockPanel>
+
+            <Button Grid.Row="2" Content="Home" Style="{StaticResource Button.Navigation}" Command="{Binding GeneralNavigationCommand}"/>
+            <Button Grid.Row="3" Content="Abcense" Style="{StaticResource Button.Navigation}" Command="{Binding AbcenseNavigationCommand}"/>
+            <Button Grid.Row="4" Content="Profile" Style="{StaticResource Button.Navigation}" Command="{Binding ProfileNavigationCommand}"/>
+        </Grid>
+    </Grid>
+</Window>
