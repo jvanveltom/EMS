@@ -5,11 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EMS_System"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="EMS_System.ClockhoursControl"
-             mc:Ignorable="d" 
-             d:DesignHeight="500" Width="272">
-    <Grid Background="White">
-        <TextBlock Name="txtbk_Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text=" Clock hours" VerticalAlignment="Top" Background="#FF0E1219" Foreground="White" Width="500" FontSize="20px"/>
-        <TextBlock Name="txtbk_Monday" HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" Text="Monday &#x09;&#x09;&#x09; 09:00 - 18:00" VerticalAlignment="Top" Width="272"/>
-        <TextBlock Name="txtbk_Tuesday" HorizontalAlignment="Left" Margin="0, 47, 0, 0" TextWrapping="Wrap" Text="Tuesday &#x09;&#x09;&#x09; 09:00 - 17:00" VerticalAlignment="Top" Width="272" Background="#FFDEDEDE"/>
-    </Grid>
+             mc:Ignorable="d" Width="272" Height="125.348">
+    <Border BorderBrush="#FF0E1219" BorderThickness="1px">
+        <Grid Background="White">
+            <TextBlock Name="txtbk_Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text=" Clock hours" VerticalAlignment="Top" Background="#FF0E1219" Foreground="White" Width="500" FontSize="20px"/>
+            <TextBlock Name="txtbk_Monday" HorizontalAlignment="Left" Margin="0,27,0,0" TextWrapping="Wrap" Text="Monday &#x09;&#x09;&#x09; 09:00 - 18:00" VerticalAlignment="Top" Width="272"/>
+            <TextBlock Name="txtbk_Tuesday" HorizontalAlignment="Left" Margin="0, 47, 0, 0" TextWrapping="Wrap" Text="Tuesday &#x09;&#x09;&#x09; 09:00 - 17:00" VerticalAlignment="Top" Width="272" Background="#FFDEDEDE"/>
+            <TextBlock Name="txtbk_Wednesday" HorizontalAlignment="Left" Margin="0, 67, 0, 0" TextWrapping="Wrap" Text="Wednesday &#x09;&#x09; 10:00 - 18:00" VerticalAlignment="Top" Width="272"/>
+            <TextBlock Name="txtbk_Thursday" HorizontalAlignment="Left" Margin="0, 87, 0, 0" TextWrapping="Wrap" Text="Thursday &#x09;&#x09; 09:00 - 17:00" VerticalAlignment="Top" Width="272" Background="#FFDEDEDE"/>
+            <TextBlock Name="txtbk_Friday" HorizontalAlignment="Left" Margin="0, 107, 0, 0" TextWrapping="Wrap" Text="Friday &#x09;&#x09;&#x09; 09:00 - 18:00" VerticalAlignment="Top" Width="272"/>
+        </Grid>
+    </Border>
 </UserControl>
