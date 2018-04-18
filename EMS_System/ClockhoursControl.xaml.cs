@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace EMS_System
 {
     /// <summary>
-    /// Interaction logic for AbsenceUserControl.xaml
+    /// Interaction logic for ClockhoursControl.xaml
     /// </summary>
-    public partial class AbsenceUserControl : UserControl
+    public partial class ClockhoursControl : UserControl
     {
-        public AbsenceUserControl()
+        public ClockhoursControl()
         {
             InitializeComponent();
         }

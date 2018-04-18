@@ -173,7 +173,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AbsenceUserControl.xaml">
+    <Page Include="ClockhoursControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,8 +185,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AbsenceUserControl.xaml.cs">
-      <DependentUpon>AbsenceUserControl.xaml</DependentUpon>
+    <Compile Include="ClockhoursControl.xaml.cs">
+      <DependentUpon>ClockhoursControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="AbsenceWindow.xaml.cs">
       <DependentUpon>AbsenceWindow.xaml</DependentUpon>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AbsenceWindow" Height="600" Width="1000" ResizeMode="NoResize">
     <Grid>
-        <local:AbsenceUserControl/>
+        <local:ClockhoursControl/>
         <!--<controls:AbsenceUserControl></controls:AbsenceUserControl>-->
     </Grid>
 </Window>
