@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:EMS_System"
         mc:Ignorable="d"
         Title="ProfilePage" Height="600" Width="1000" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ImagesDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
+        <local:ProfileControl Margin="16,44,459,10"></local:ProfileControl>
+        <local:FunctionsControl Margin="559,373,178,10" RenderTransformOrigin="0.273,0.661"></local:FunctionsControl>
         <local:MenuControl Margin="853,43,-641,419"></local:MenuControl>
+        <TextBox x:Name="txt_searchInput" HorizontalAlignment="Left" Height="23" Margin="352,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212"/>
+        <Button x:Name="bttn_searchIcon" Height="23" VerticalAlignment="Center" Command="{Binding SetSelectedItemCommand}" Margin="569,11,398,537">
+            <Button.Content>
+                <Image Source="{StaticResource SearchBlack}" Height="23" HorizontalAlignment="Center"/>
+            </Button.Content>
+        </Button>
+        <Image x:Name="img_profile" HorizontalAlignment="Left" Height="300" Margin="559,44,0,0" VerticalAlignment="Top" Width="257">
+            <Image.OpacityMask>
+                <ImageBrush Stretch="Uniform"/>
+            </Image.OpacityMask>
+        </Image>
     </Grid>
 </Window>
