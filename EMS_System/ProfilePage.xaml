@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="ProfilePage" Height="600" Width="1000" ResizeMode="NoResize">
     <Grid>
-        
+        <local:MenuControl Margin="853,43,-641,419"></local:MenuControl>
     </Grid>
 </Window>
