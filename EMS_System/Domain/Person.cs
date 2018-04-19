@@ -7,17 +7,26 @@ namespace EMS_System.Domain
 {
     public class Person : NotifyPropertyChangedBase
     {
+        // Deze class bevat de data van de werknemer
+        // Roep je aan bij profielpagina en in zoekresultaten
         private string _name;
         private object _photo;
+        // ObservableCollection -> geeft aan wanneer een collectie gewijzigd is
+        // Triggerd een event wanneer de collectie wijzigd (niet de items in de lijst zitten)
+        // BV. iets toevoegen / weggooien = trigger, item binnen de collectie wijzigd = geen trigger
         private ObservableCollection<string> _profileData;
         private ObservableCollection<string> _deparments;
         private ObservableCollection<string> _functions;
 
+        // Constructor
         public Person()
         {
             _profileData = new ObservableCollection<string>();
         }
 
+        // In dit geval heeft de persoon een naam
+        // Return de naam
+        // Property wijzigd -> wil je hier iets mee (onpropertychanged)
         public string Name
         {
             get { return _name; }
@@ -55,6 +64,7 @@ namespace EMS_System.Domain
             {
                 _deparments = value;
                 OnPropertyChanged();
+                // nameof = pak de naam van het volgende object
                 OnPropertyChanged(nameof(DeparmentsAndFunctions));
             }
         }
@@ -73,8 +83,8 @@ namespace EMS_System.Domain
         public ObservableCollection<string> DeparmentsAndFunctions
         {
             get
-            {
-                // use a list cause we don't need to trigger the property changed event
+            {  
+                // We gebruiken een list want we hoeven heb nog niet te triggeren bij een verandering
                 var result = new List<string>();
                 result.AddRange(Deparments.OrderBy(deparment => deparment));
                 result.AddRange(Functions.OrderBy(functions => functions));
