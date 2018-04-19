@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!-- Search button -->
+    <!-- Search button style -->
     <Style x:Key="Button.Search" TargetType="{x:Type Button}">
         <Style.Resources>
             <DrawingImage x:Key="Icon">

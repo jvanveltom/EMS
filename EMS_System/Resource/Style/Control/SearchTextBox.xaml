@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:control="clr-namespace:EMS_System.Resource.Control">
-    
+   
+<!-- Een template die ik gebruik voor de textbox style -->
     <Style TargetType="{x:Type control:SearchTextBox}" >
         <Setter Property="Template">
             <Setter.Value>
