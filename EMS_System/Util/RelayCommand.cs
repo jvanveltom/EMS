@@ -6,6 +6,8 @@ namespace EMS_System.Util
 {
     public class RelayCommand : ICommand
     {
+        // Relaycommand is een implementatie van ICommand
+        // Zie ICommand voor alle comments (F12 op ICommand)
         readonly Action<object> _execute;
         readonly Predicate<object> _canExecute;
 

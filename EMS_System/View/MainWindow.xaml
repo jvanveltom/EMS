@@ -35,6 +35,7 @@
                 <control:SearchTextBox x:Name="SearchTextBox" BackgroundText="Search Person" Text="{Binding SearchInput}"/>
             </DockPanel>
 
+            <!-- Als je op de button klikt, gebruik je button.navigation. Deze navigeerd naar de gewenste content -->
             <Button Grid.Row="2" Content="Home" Style="{StaticResource Button.Navigation}" Command="{Binding GeneralNavigationCommand}"/>
             <Button Grid.Row="3" Content="Abcense" Style="{StaticResource Button.Navigation}" Command="{Binding AbcenseNavigationCommand}"/>
             <Button Grid.Row="4" Content="Profile" Style="{StaticResource Button.Navigation}" Command="{Binding ProfileNavigationCommand}"/>

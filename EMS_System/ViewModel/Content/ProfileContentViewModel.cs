@@ -6,6 +6,8 @@ namespace EMS_System.ViewModel.Content
 {
     public class ProfileContentViewModel : NotifyPropertyChangedBase
     {
+        // Uiteindelijke informatie
+        // Hier moet dus de SQL in in plaats van de huidige dummy
         private Person _person;
         private string _profileHeader;
 

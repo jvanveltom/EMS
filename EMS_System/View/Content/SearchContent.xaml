@@ -6,6 +6,7 @@
              xmlns:content="clr-namespace:EMS_System.ViewModel.Content"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance content:SearchContentViewModel }">
+    <!-- Defineren van uiterlijk, wordt overgenomen Person.xaml gezien dit hetzelfde uiterlijk heeft-->
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,12 +16,15 @@
     </UserControl.Resources>
     
     <Grid>
+        <!-- Hoogte van de RowDefinition doet ie automatisch -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+         <!-- Roep de template textblock.header aan en de titel moet "Searchresults" zijn -->
         <TextBlock Text="Searchresults" Style="{StaticResource TextBlock.Header}"/>
+        <!-- ListView met alle benodigde items -->
         <ListView Grid.Row="1" SelectionMode="Single" ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}" ItemTemplate="{StaticResource PersonTemplate}"/>
     </Grid>
 </UserControl>

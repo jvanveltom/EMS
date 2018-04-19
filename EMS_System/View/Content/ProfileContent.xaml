@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance content:ProfileContentViewModel}">
     <Grid>
+        <!-- Uiterlijk van de pagina Profiel, wordt ingeladen over de mainwindow -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
