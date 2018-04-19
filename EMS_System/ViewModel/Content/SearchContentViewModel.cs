@@ -6,6 +6,8 @@ namespace EMS_System.ViewModel.Content
 {
     public class SearchContentViewModel : NavigationBaseViewModel<Person>
     {
+        // Uiteindelijke informatie
+        // Hier moet dus de SQL in in plaats van de huidige collection
         public void ExecuteSearch(string searchParamter)
         {
             // TODO: Add search

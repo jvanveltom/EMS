@@ -5,6 +5,7 @@ namespace EMS_System.ViewModel.Util
 {
     public class NavigationBaseViewModel<T> : NotifyPropertyChangedBase
     {
+        // Deze class is de basis voor de lijst waarin je dingen wilt selecteren in de viewmodel
         private ObservableCollection<T> _itemsSource;
         private T _selectedItem;
 
