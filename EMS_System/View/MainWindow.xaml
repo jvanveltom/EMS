@@ -6,8 +6,8 @@
         xmlns:control="clr-namespace:EMS_System.Resource.Control"
         mc:Ignorable="d"
         DataContext="{StaticResource MainViewModel}"
-        Title="MainWindow" Height="300" Width="600">
-    
+        Title="MainWindow" Height="500" Width="900">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -16,9 +16,9 @@
         </Grid.ColumnDefinitions>
 
         <ContentControl Content="{Binding MainContentElement}"/>
-        
+
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
-        
+
         <!-- Navigation panel -->
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
@@ -29,16 +29,16 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
             <DockPanel Grid.Row="0">
                 <Button DockPanel.Dock="Right" Command="{Binding SearchCommand}" CommandParameter="{Binding Text, ElementName=SearchTextBox}" Style="{StaticResource Button.Search}"/>
                 <control:SearchTextBox x:Name="SearchTextBox" BackgroundText="Search Person" Text="{Binding SearchInput}"/>
             </DockPanel>
 
             <!-- Als je op de button klikt, gebruik je button.navigation. Deze navigeerd naar de gewenste content -->
-            <Button Grid.Row="2" Content="Home" Style="{StaticResource Button.Navigation}" Command="{Binding GeneralNavigationCommand}"/>
-            <Button Grid.Row="3" Content="Abcense" Style="{StaticResource Button.Navigation}" Command="{Binding AbcenseNavigationCommand}"/>
-            <Button Grid.Row="4" Content="Profile" Style="{StaticResource Button.Navigation}" Command="{Binding ProfileNavigationCommand}"/>
+            <Button Grid.Row="2" Height="30" FontSize="15px"  Content="Home" Style="{StaticResource Button.Navigation}" Command="{Binding GeneralNavigationCommand}"/>
+            <Button Grid.Row="3" Height="30" FontSize="15px" Content="Abcense" Style="{StaticResource Button.Navigation}" Command="{Binding AbcenseNavigationCommand}"/>
+            <Button Grid.Row="4" Height="30" FontSize="15px" Content="Profile" Style="{StaticResource Button.Navigation}" Command="{Binding ProfileNavigationCommand}"/>
         </Grid>
     </Grid>
 </Window>

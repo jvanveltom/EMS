@@ -12,11 +12,13 @@ namespace EMS_System.Domain
         private string _name;
         private object _photo;
         // ObservableCollection -> geeft aan wanneer een collectie gewijzigd is
-        // Triggerd een event wanneer de collectie wijzigd (niet de items in de lijst zitten)
+        // Triggert een event wanneer de collectie wijzigd (niet de items in de lijst zitten)
         // BV. iets toevoegen / weggooien = trigger, item binnen de collectie wijzigd = geen trigger
         private ObservableCollection<string> _profileData;
         private ObservableCollection<string> _deparments;
         private ObservableCollection<string> _functions;
+        private ObservableCollection<string> _residence;
+        private ObservableCollection<string> _clockHours;
 
         // Constructor
         public Person()
@@ -33,6 +35,16 @@ namespace EMS_System.Domain
             set
             {
                 _name = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<string> Residence
+        {
+            get { return _residence; }
+            set
+            {
+                _residence = value;
                 OnPropertyChanged();
             }
         }
@@ -66,6 +78,16 @@ namespace EMS_System.Domain
                 OnPropertyChanged();
                 // nameof = pak de naam van het volgende object
                 OnPropertyChanged(nameof(DeparmentsAndFunctions));
+            }
+        }
+
+        public ObservableCollection<string> ClockHours
+        {
+            get { return _clockHours; }
+            set
+            {
+                _clockHours = value;
+                OnPropertyChanged();
             }
         }
 

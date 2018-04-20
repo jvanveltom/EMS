@@ -5,8 +5,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:content="clr-namespace:EMS_System.ViewModel.Content"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance content:AbcenseContentViewModel}">
+             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance content:ProfileContentViewModel}">
     <Grid>
-        <Label Content="Abcense"/>
+        <!-- Uiterlijk van de pagina Profiel, wordt ingeladen over de mainwindow -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <DockPanel Grid.Column="0">
+            <TextBlock DockPanel.Dock="Top" Text="Clock hours" Style="{StaticResource TextBlock.Header}"/>
+            <ListView ItemsSource="{Binding Person.ClockHours}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+        </DockPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="33*"/>
+            </Grid.RowDefinitions>
+
+            <DockPanel Grid.Row="0">
+                <TextBlock DockPanel.Dock="Top" Text="Presence" Style="{StaticResource TextBlock.Header}"/>
+                <ListView ItemsSource="{Binding Person.Deparments}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+            </DockPanel>
+
+            <DockPanel Grid.Row="1">
+                <TextBlock DockPanel.Dock="Top" Text="Absence" Style="{StaticResource TextBlock.Header}"/>
+                <ListView ItemsSource="{Binding Person.ClockHours}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+            </DockPanel>
+
+            <DockPanel Grid.Row="2">
+                <TextBlock DockPanel.Dock="Top" Text="Overtime" Style="{StaticResource TextBlock.Header}"/>
+                <ListView ItemsSource="{Binding Person.ClockHours}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+            </DockPanel>
+        </Grid>
+
+        <DockPanel Grid.Column="2">
+            <TextBlock DockPanel.Dock="Top" Text="Proflow" Style="{StaticResource TextBlock.Header}"/>
+            <ListView ItemsSource="{Binding Person.DeparmentsAndFunctions}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+        </DockPanel>
+
     </Grid>
 </UserControl>
