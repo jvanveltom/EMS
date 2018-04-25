@@ -24,5 +24,10 @@ namespace EMS_System
         {
             InitializeComponent();
         }
+
+        private void bttn_home_MouseEnter(object sender, MouseEventArgs e)
+        {
+            bttn_home.Margin = new Thickness(0, 16, 0, 0);
+        }
     }
 }

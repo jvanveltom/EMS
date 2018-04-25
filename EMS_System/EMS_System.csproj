@@ -181,9 +181,6 @@
     <Compile Include="ProfileControl.xaml.cs">
       <DependentUpon>ProfileControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Resource\Control\SearchTextBox.cs" />
-    <Compile Include="Util\DatabaseHandler.cs" />
-    <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="SearchControl.xaml.cs">
       <DependentUpon>SearchControl.xaml</DependentUpon>
     </Compile>
@@ -195,6 +192,10 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Util\NavigationBaseViewModel.cs" />
     <Compile Include="View\Content\AbcenseContent.xaml.cs">
+    <Compile Include="Resource\Control\SearchTextBox.cs" />
+    <Compile Include="Util\DatabaseHandler.cs" />
+    <Compile Include="Util\RelayCommand.cs" />
+    <Compile Include="RelayCommand.cs" />
       <DependentUpon>AbcenseContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Content\GeneralContent.xaml.cs">
