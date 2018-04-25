@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:domain="clr-namespace:EMS_System.Domain">
+    
+    <DataTemplate x:Key="PersonTemplate" DataType="domain:Person">
+        <Grid>
+            <!-- Textblock wordt gevult met alles van domain -> person -->
+            <!-- Textblock wordt aangemaakt voor alle data binnen person -->
+            <TextBlock Text="{Binding Name}" />
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

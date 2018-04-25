@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace EMS_System
+namespace EMS_System.Util
 {
     public class RelayCommand : ICommand
     {
+        // Relaycommand is een implementatie van ICommand
+        // Zie ICommand voor alle comments (F12 op ICommand)
         readonly Action<object> _execute;
         readonly Predicate<object> _canExecute;
 

@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+<!-- Search button -->
+    <Style x:Key="Button.Navigation" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#FF0E1219"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+</ResourceDictionary>

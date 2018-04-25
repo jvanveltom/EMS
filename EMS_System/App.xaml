@@ -1,9 +1,20 @@
 ﻿<Application x:Class="EMS_System.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:EMS_System"
-             StartupUri="ProfilePage.xaml">
+             xmlns:viewModel="clr-namespace:EMS_System.ViewModel"
+             StartupUri="View/LoginWindow.xaml
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resource/Style/Control/ListViewAlternating.xaml" />
+                <ResourceDictionary Source="Resource/Style/Control/ListViewItemAlternating.xaml" />
+                <ResourceDictionary Source="Resource/Style/Control/SearchButton.xaml" />
+                <ResourceDictionary Source="Resource/Style/Control/NavigationButton.xaml" />
+                <ResourceDictionary Source="Resource/Style/Control/SearchTextBox.xaml" />
+                <ResourceDictionary Source="Resource/Style/Control/TextBlockHeader.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <viewModel:MainViewModel x:Key="MainViewModel" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

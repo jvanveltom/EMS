@@ -171,6 +171,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Domain\Person.cs" />
     <Compile Include="FunctionsControl.xaml.cs">
       <DependentUpon>FunctionsControl.xaml</DependentUpon>
     </Compile>
@@ -180,12 +181,37 @@
     <Compile Include="ProfileControl.xaml.cs">
       <DependentUpon>ProfileControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RelayCommand.cs" />
     <Compile Include="SearchControl.xaml.cs">
       <DependentUpon>SearchControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SearchPage.xaml.cs">
-      <DependentUpon>SearchPage.xaml</DependentUpon>
+    <Compile Include="Util\NotifyPropertyChangedBase.cs" />
+    <Compile Include="ViewModel\Content\AbcenseContentViewModel.cs" />
+    <Compile Include="ViewModel\Content\GeneralContentViewModel.cs" />
+    <Compile Include="ViewModel\Content\ProfileContentViewModel.cs" />
+    <Compile Include="ViewModel\Content\SearchContentViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Util\NavigationBaseViewModel.cs" />
+    <Compile Include="View\Content\AbcenseContent.xaml.cs">
+    <Compile Include="Resource\Control\SearchTextBox.cs" />
+    <Compile Include="Util\DatabaseHandler.cs" />
+    <Compile Include="Util\RelayCommand.cs" />
+    <Compile Include="RelayCommand.cs" />
+      <DependentUpon>AbcenseContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Content\GeneralContent.xaml.cs">
+      <DependentUpon>GeneralContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Content\ProfileContent.xaml.cs">
+      <DependentUpon>ProfileContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Content\SearchContent.xaml.cs">
+      <DependentUpon>SearchContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="FunctionsControl.xaml">
       <SubType>Designer</SubType>
@@ -219,11 +245,59 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resource\DataTemplate\Person.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\Style\Control\ListViewAlternating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\Style\Control\ListViewItemAlternating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\Style\Control\NavigationButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\Style\Control\SearchButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\Style\Control\SearchTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\Style\Control\TextBlockHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SearchControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SearchPage.xaml">
+    <Page Include="View\Content\AbcenseContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Content\GeneralContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Content\ProfileContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Content\SearchContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
