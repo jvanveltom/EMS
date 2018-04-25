@@ -44,7 +44,7 @@
 
             <DockPanel Grid.Row="3">
                 <TextBlock DockPanel.Dock="Top" Text="Overtime" Style="{StaticResource TextBlock.Header}"/>
-                <ListView ItemsSource="{Binding Person.ProfileData}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                <ListView ItemsSource="{Binding Person.Overtime}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
             </DockPanel>
         </Grid>
 
@@ -55,10 +55,16 @@
                     <ColumnDefinition Width="50*"/>
                     <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
-                <ListView Grid.Column="0" ItemsSource="{Binding Person.Photo}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
-                <TextBlock Grid.Column="1" Text="PHOTO" Background="Gray" TextAlignment="Center"/>
+                <ListView Grid.Column="0" ItemsSource="{Binding Person.PersonalData}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="75*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="1" Text="PHOTO" Background="Gray" TextAlignment="Center"/>
+                    <ListView Grid.Row="2" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                </Grid>
             </Grid>
         </DockPanel>
-
     </Grid>
 </UserControl>

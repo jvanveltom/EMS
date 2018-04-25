@@ -9,9 +9,8 @@
     <Grid>
         <!-- Uiterlijk van de pagina Profiel, wordt ingeladen over de mainwindow -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
 
         <DockPanel Grid.Column="0">

@@ -182,6 +182,7 @@
       <DependentUpon>ProfileControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resource\Control\SearchTextBox.cs" />
+    <Compile Include="Util\DatabaseHandler.cs" />
     <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="SearchControl.xaml.cs">
       <DependentUpon>SearchControl.xaml</DependentUpon>
@@ -204,6 +205,9 @@
     </Compile>
     <Compile Include="View\Content\SearchContent.xaml.cs">
       <DependentUpon>SearchContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -285,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Content\SearchContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

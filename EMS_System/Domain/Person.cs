@@ -10,6 +10,9 @@ namespace EMS_System.Domain
         // Deze class bevat de data van de werknemer
         // Roep je aan bij profielpagina en in zoekresultaten
         private string _name;
+        private string _address;
+        private string _zipcode;
+        private int _overtime;
         private object _photo;
         // ObservableCollection -> geeft aan wanneer een collectie gewijzigd is
         // Triggert een event wanneer de collectie wijzigd (niet de items in de lijst zitten)
@@ -30,12 +33,22 @@ namespace EMS_System.Domain
         // Return de naam
         // Property wijzigd -> wil je hier iets mee (onpropertychanged)
         public string Name
-        {
+         {
             get { return _name; }
             set
             {
                 _name = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public int Overtime
+        {
+            get { return _overtime; }
+            set
+            {
+                _overtime = value;
+                OnPropertyChanged();                //Not sure if used
             }
         }
 
@@ -45,6 +58,16 @@ namespace EMS_System.Domain
             set
             {
                 _residence = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Zipcode
+        {
+            get { return _zipcode; }
+            set
+            {
+                _zipcode = value;
                 OnPropertyChanged();
             }
         }
@@ -63,7 +86,7 @@ namespace EMS_System.Domain
         {
             get { return _profileData; }
             set
-            {
+            {   
                 _profileData = value;
                 OnPropertyChanged();
             }
@@ -110,6 +133,19 @@ namespace EMS_System.Domain
                 var result = new List<string>();
                 result.AddRange(Deparments.OrderBy(deparment => deparment));
                 result.AddRange(Functions.OrderBy(functions => functions));
+
+                return new ObservableCollection<string>(result);
+            }
+        }
+
+        public ObservableCollection<string> PersonalData
+        {
+            get
+            {
+                var result = new List<string>();
+                result.Add(Name);
+                result.AddRange(Residence.OrderBy(residence => residence));
+                result.Add(Zipcode);
 
                 return new ObservableCollection<string>(result);
             }
