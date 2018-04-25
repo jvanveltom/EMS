@@ -191,13 +191,10 @@
     <Compile Include="ViewModel\Content\SearchContentViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Util\NavigationBaseViewModel.cs" />
-    <Compile Include="View\Content\AbcenseContent.xaml.cs">
+    <Compile Include="View\Content\AbcenseContent.xaml.cs"/>
     <Compile Include="Resource\Control\SearchTextBox.cs" />
     <Compile Include="Util\DatabaseHandler.cs" />
     <Compile Include="Util\RelayCommand.cs" />
-    <Compile Include="RelayCommand.cs" />
-      <DependentUpon>AbcenseContent.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Content\GeneralContent.xaml.cs">
       <DependentUpon>GeneralContent.xaml</DependentUpon>
     </Compile>
@@ -213,6 +210,14 @@
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+	<Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Page Include="FunctionsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -225,14 +230,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="MenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
