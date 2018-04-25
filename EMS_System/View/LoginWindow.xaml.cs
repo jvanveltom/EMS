@@ -53,6 +53,7 @@ namespace EMS_System.View
             {
                 dbh.CloseConnection();
                 MessageBox.Show("Incorrect username or password", "Login error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                Console.WriteLine("BanaantTest");
             }
         }
     }
