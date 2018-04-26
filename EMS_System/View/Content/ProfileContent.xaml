@@ -27,8 +27,18 @@
             
             <TextBlock Grid.Row="0" Text="PHOTO" Background="Gray" TextAlignment="Center" Height="100"/>
             <DockPanel Grid.Row="2">
-                <TextBlock DockPanel.Dock="Top" Text="Department and Functions" Style="{StaticResource TextBlock.Header}"/>
-                <ListView ItemsSource="{Binding Person.DeparmentsAndFunctions}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="70*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" DockPanel.Dock="Top" Text="Department" Style="{StaticResource TextBlock.Header}"/>
+                    <ListView Grid.Row="1" ItemsSource="{Binding Person.DeparmentsAndFunctions}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                    <TextBlock Grid.Row="2" Text="Functions" Style="{StaticResource TextBlock.Header}"/>
+                    <ListView Grid.Row="3" ItemsSource="{Binding Person.Functions}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                </Grid>
             </DockPanel>
         </Grid>
     </Grid>

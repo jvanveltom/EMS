@@ -11,6 +11,7 @@ namespace EMS_System.Domain
         // Roep je aan bij profielpagina en in zoekresultaten
         private string _name;
         private string _address;
+        private string _department;
         private string _zipcode;
         private int _overtime;
         private object _photo;
@@ -18,7 +19,6 @@ namespace EMS_System.Domain
         // Triggert een event wanneer de collectie wijzigd (niet de items in de lijst zitten)
         // BV. iets toevoegen / weggooien = trigger, item binnen de collectie wijzigd = geen trigger
         private ObservableCollection<string> _profileData;
-        private ObservableCollection<string> _deparments;
         private ObservableCollection<string> _functions;
         private ObservableCollection<string> _residence;
         private ObservableCollection<string> _clockHours;
@@ -92,15 +92,14 @@ namespace EMS_System.Domain
             }
         }
 
-        public ObservableCollection<string> Deparments
+        public string Department
         {
-            get { return _deparments; }
+            get { return _department; }
             set
             {
-                _deparments = value;
+                _department = value;
                 OnPropertyChanged();
-                // nameof = pak de naam van het volgende object
-                OnPropertyChanged(nameof(DeparmentsAndFunctions));
+                //OnPropertyChanged(nameof(DeparmentsAndFunctions));
             }
         }
 
@@ -121,17 +120,17 @@ namespace EMS_System.Domain
             {
                 _functions = value;
                 OnPropertyChanged();
-                OnPropertyChanged(nameof(DeparmentsAndFunctions));
+                //OnPropertyChanged(nameof(DeparmentsAndFunctions));
             }
         }
 
         public ObservableCollection<string> DeparmentsAndFunctions
         {
             get
-            {  
+            {
                 // We gebruiken een list want we hoeven heb nog niet te triggeren bij een verandering
                 var result = new List<string>();
-                result.AddRange(Deparments.OrderBy(deparment => deparment));
+                result.Add(Department);
                 result.AddRange(Functions.OrderBy(functions => functions));
 
                 return new ObservableCollection<string>(result);

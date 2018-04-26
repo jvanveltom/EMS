@@ -8,8 +8,9 @@
         Title="LoginWindow" Height="157.939" Width="310.864">
     <Grid>
         <TextBlock TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Margin="41,31,33,0" Style="{StaticResource TextBlock.Header}"/>
-        <TextBox Name="txtb_Username" HorizontalAlignment="Left" Height="19" Margin="41,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Text="Username" MouseDown="TextBox_MouseDown"/>
-        <TextBox Name="txtb_Password" HorizontalAlignment="Left" Height="19" Margin="41,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Text="Password" MouseDown="TextBox_MouseDown"/>
+        <TextBox Name="txtb_Username" HorizontalAlignment="Left" Height="19" Margin="41,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Text="Henk" MouseDown="TextBox_MouseDown"/>
+        <PasswordBox Name="txtb_Password" HorizontalAlignment="Left" Height="19" Margin="41, 66, 0, 0" VerticalAlignment="Top" Width="221" MouseDown="TextBox_MouseDown" PasswordChar="*" Password="Password"/>
+        <!-- <TextBox Name="txtb_Password" HorizontalAlignment="Left" Height="19" Margin="41,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Text="Password" MouseDown="TextBox_MouseDown" /> -->
         <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="187,90,0,0" Style="{StaticResource Button.Navigation}" Click="btn_Login_Click"/>
 
     </Grid>

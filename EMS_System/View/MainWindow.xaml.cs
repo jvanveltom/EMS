@@ -22,11 +22,16 @@ namespace EMS_System.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int employee_ID;
+
         DatabaseHandler dbh;
-        public MainWindow()
+        public MainWindow(int emp_ID)
         {
             InitializeComponent();
             dbh = new DatabaseHandler();
+            employee_ID = emp_ID;
+
+            Console.WriteLine(GetLoggedInUserID());
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -34,6 +39,11 @@ namespace EMS_System.View
             base.OnClosing(e);
 
             Environment.Exit(8);
+        }
+
+        public virtual int GetLoggedInUserID()
+        {
+            return employee_ID;
         }
     }
 }

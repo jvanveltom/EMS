@@ -20,6 +20,8 @@ namespace EMS_System.View.Content
     /// </summary>
     public partial class AbcenseContent : UserControl
     {
+        public static string banaan;
+
         public AbcenseContent()
         {
             InitializeComponent();

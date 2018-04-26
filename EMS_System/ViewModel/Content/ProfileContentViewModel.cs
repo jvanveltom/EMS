@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using EMS_System.View;
 using EMS_System.Domain;
 using EMS_System.Util;
 
@@ -10,17 +11,19 @@ namespace EMS_System.ViewModel.Content
         // Hier moet dus de SQL in in plaats van de huidige dummy
         private Person _person;
         private string _profileHeader;
+        private DatabaseHandler dbh = new DatabaseHandler();
 
         public ProfileContentViewModel()
         {
-            // TODO remove dummy
+            dbh.OpenConnection();
             Person = new Person
             {
-                Name = "Henk",
-                ProfileData = new ObservableCollection<string> { "data 1", "data 2" },
-                Deparments = new ObservableCollection<string> {"deparment 1", "deparment 2" },
-                Functions = new ObservableCollection<string> { "function 1" }
+                Name = dbh.GetUsername(1),
+                Department = "R&D",
+                ProfileData = new ObservableCollection<string> { dbh.GetUsername(1), dbh.GetEmployeeAddress(1), dbh.GetEmployeeZipcode(1), dbh.GetEmployeeEmail(1) },
+                Functions = new ObservableCollection<string> { "Developer", "Salesman" }
             };
+            dbh.CloseConnection();
         }
 
         public Person Person

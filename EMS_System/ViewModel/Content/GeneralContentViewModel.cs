@@ -19,7 +19,7 @@ namespace EMS_System.ViewModel.Content
                 Overtime = 5,
                 Residence = new ObservableCollection<string> { "Zevenbergen", "Breda" },
                 ProfileData = new ObservableCollection<string> { "Data 1", "Data 2" },
-                Deparments = new ObservableCollection<string> { "Department 1", "Department 2" },
+                //Deparments = new ObservableCollection<string> { "Department 1", "Department 2" },
                 ClockHours = new ObservableCollection<string> { "Monday: \t 09:00 - 18:00", "Tuesday: \t 09:00 - 17:00" },
                 Functions = new ObservableCollection<string> { "Function 1" }
             };

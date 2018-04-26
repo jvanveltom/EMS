@@ -41,19 +41,18 @@ namespace EMS_System.View
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
             dbh.OpenConnection();
-            if (dbh.Login(txtb_Username.Text, txtb_Password.Text))
+            if (dbh.Login(txtb_Username.Text, txtb_Password.Password))
             {
+                MainWindow mainWindow = new MainWindow(dbh.GetLoggedInUserID(txtb_Username.Text, txtb_Password.Password));
                 dbh.CloseConnection();
-                MainWindow mainWindow = new MainWindow();
                 mainWindow.Owner = this;
                 this.Hide();
-                mainWindow.ShowDialog();                        //Pass logged in Employee ID as argument with mainWindow, if possible
+                mainWindow.ShowDialog();
             }
             else
             {
                 dbh.CloseConnection();
                 MessageBox.Show("Incorrect username or password", "Login error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                Console.WriteLine("BanaantTest");
             }
         }
     }
