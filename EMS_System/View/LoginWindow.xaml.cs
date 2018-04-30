@@ -55,6 +55,30 @@ namespace EMS_System.View
                 MessageBox.Show("Incorrect username or password", "Login error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+
+        private void btn_Enter_Pushed(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (txtb_Username.Text != "" && txtb_Password.Password != "")
+                {
+                    dbh.OpenConnection();
+                    if (dbh.Login(txtb_Username.Text, txtb_Password.Password))
+                    {
+                        MainWindow mainWindow = new MainWindow(dbh.GetLoggedInUserID(txtb_Username.Text, txtb_Password.Password));
+                        dbh.CloseConnection();
+                        mainWindow.Owner = this;
+                        this.Hide();
+                        mainWindow.ShowDialog();
+                    }
+                    else
+                    {
+                        dbh.CloseConnection();
+                        MessageBox.Show("Incorrect username or password", "Login error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
+            }
+        }
     }
 }
 

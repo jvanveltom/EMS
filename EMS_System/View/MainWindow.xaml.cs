@@ -45,5 +45,13 @@ namespace EMS_System.View
         {
             return employee_ID;
         }
+
+        private void SearchOnEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btn_Search.Command.Execute(SearchTextBox.Text);
+            }
+        }
     }
 }

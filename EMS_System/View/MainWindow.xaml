@@ -31,8 +31,8 @@
             </Grid.RowDefinitions>
 
             <DockPanel Grid.Row="0">
-                <Button DockPanel.Dock="Right" Command="{Binding SearchCommand}" CommandParameter="{Binding Text, ElementName=SearchTextBox}" Style="{StaticResource Button.Search}"/>
-                <control:SearchTextBox x:Name="SearchTextBox" BackgroundText="Search Person" Text="{Binding SearchInput}"/>
+                <Button Name="btn_Search" DockPanel.Dock="Right" Command="{Binding SearchCommand}" CommandParameter="{Binding Text, ElementName=SearchTextBox}" Style="{StaticResource Button.Search}"/>
+                <control:SearchTextBox x:Name="SearchTextBox" BackgroundText="Search Person" Text="{Binding SearchInput}" KeyDown="SearchOnEnter"/>
             </DockPanel>
 
             <!-- Als je op de button klikt, gebruik je button.navigation. Deze navigeerd naar de gewenste content -->
