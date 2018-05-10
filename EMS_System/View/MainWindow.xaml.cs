@@ -31,12 +31,16 @@ namespace EMS_System.View
             dbh = new DatabaseHandler();
             employee_ID = emp_ID;
 
-            Console.WriteLine(GetLoggedInUserID());
+            //Console.WriteLine(GetLoggedInUserID());
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
+
+            dbh.OpenConnection();
+            dbh.Checkout(employee_ID);
+            dbh.CloseConnection();
 
             Environment.Exit(8);
         }

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using EMS_System.Util;
 using EMS_System.View;
+using System.Security.Cryptography;
 
 namespace EMS_System.View
 {
@@ -40,13 +41,17 @@ namespace EMS_System.View
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine(CreateHash(txtb_Password.Password));
             dbh.OpenConnection();
-            if (dbh.Login(txtb_Username.Text, txtb_Password.Password))
+            if (dbh.Login(txtb_Username.Text, CreateHash(txtb_Password.Password)))
             {
-                MainWindow mainWindow = new MainWindow(dbh.GetLoggedInUserID(txtb_Username.Text, txtb_Password.Password));
+                dbh.Checkin(dbh.GetLoggedInUserID(txtb_Username.Text, CreateHash(txtb_Password.Password)));
+                MainWindow mainWindow = new MainWindow(dbh.GetLoggedInUserID(txtb_Username.Text, CreateHash(txtb_Password.Password)));
                 dbh.CloseConnection();
                 mainWindow.Owner = this;
                 this.Hide();
+                //Console.WriteLine(DateTime.Now.ToString("hh:mm tt"));
+                //Console.WriteLine(DateTime.Now.ToString("dd-MM-yyyy"));
                 mainWindow.ShowDialog();
             }
             else
@@ -63,9 +68,9 @@ namespace EMS_System.View
                 if (txtb_Username.Text != "" && txtb_Password.Password != "")
                 {
                     dbh.OpenConnection();
-                    if (dbh.Login(txtb_Username.Text, txtb_Password.Password))
+                    if (dbh.Login(txtb_Username.Text, CreateHash(txtb_Password.Password)))
                     {
-                        MainWindow mainWindow = new MainWindow(dbh.GetLoggedInUserID(txtb_Username.Text, txtb_Password.Password));
+                        MainWindow mainWindow = new MainWindow(dbh.GetLoggedInUserID(txtb_Username.Text, CreateHash(txtb_Password.Password)));
                         dbh.CloseConnection();
                         mainWindow.Owner = this;
                         this.Hide();
@@ -78,6 +83,23 @@ namespace EMS_System.View
                     }
                 }
             }
+        }
+
+        private string CreateHash(string input)
+        {
+            MD5 md5 = MD5.Create();
+
+            byte[] inputInBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hashedInput = md5.ComputeHash(inputInBytes);
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hashedInput.Length; i++)
+            {
+                sb.Append(hashedInput[i].ToString("X2"));
+            }
+            return sb.ToString();
+
         }
     }
 }

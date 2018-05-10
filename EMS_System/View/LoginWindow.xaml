@@ -11,7 +11,7 @@
         <TextBox Name="txtb_Username" HorizontalAlignment="Left" Height="19" Margin="41,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Text="Henk" MouseDown="TextBox_MouseDown" KeyDown="btn_Enter_Pushed"/>
         <PasswordBox Name="txtb_Password" HorizontalAlignment="Left" Height="19" Margin="41, 66, 0, 0" VerticalAlignment="Top" Width="221" MouseDown="TextBox_MouseDown" PasswordChar="*" Password="Password" KeyDown="btn_Enter_Pushed"/>
         <!-- <TextBox Name="txtb_Password" HorizontalAlignment="Left" Height="19" Margin="41,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Text="Password" MouseDown="TextBox_MouseDown" /> -->
-        <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="187,90,0,0" Style="{StaticResource Button.Navigation}" Click="btn_Login_Click"/>
+        <Button Name="btn_Login" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="187,90,0,0" Style="{StaticResource Button.Navigation}" Click="btn_Login_Click"/>
 
     </Grid>
 </Window>

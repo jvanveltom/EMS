@@ -2,6 +2,7 @@
 using EMS_System.Domain;
 using EMS_System.Util;
 using EMS_System.Resource;
+using System.Collections.Generic;
 
 namespace EMS_System.ViewModel.Content
 {
@@ -9,10 +10,11 @@ namespace EMS_System.ViewModel.Content
     {
         private Person _person;
         private string _profileHeader;
-        private DatabaseHandler dbh;
+        private DatabaseHandler dbh = new DatabaseHandler();
 
         public GeneralContentViewModel()
         {
+            dbh.OpenConnection();
             Person = new Person
             {
                 Name = "Henk",
@@ -20,9 +22,10 @@ namespace EMS_System.ViewModel.Content
                 Residence = new ObservableCollection<string> { "Zevenbergen", "Breda" },
                 ProfileData = new ObservableCollection<string> { "Data 1", "Data 2" },
                 //Deparments = new ObservableCollection<string> { "Department 1", "Department 2" },
-                ClockHours = new ObservableCollection<string> { "Monday: \t 09:00 - 18:00", "Tuesday: \t 09:00 - 17:00" },
+                ClockHours = LoadClockhours(dbh.GetClockHours(1)),
                 Functions = new ObservableCollection<string> { "Function 1" }
             };
+            dbh.CloseConnection();
         }
            
         public Person Person
@@ -46,6 +49,28 @@ namespace EMS_System.ViewModel.Content
                 _profileHeader = value;
                 OnPropertyChanged();
             }
+        }
+
+        public ObservableCollection<string> LoadClockhours(ObservableCollection<string> clockHours)
+        {
+            ObservableCollection<string> result = new ObservableCollection<string>();
+            List<string> list_days = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+
+            for (int i = 0; i < clockHours.Count; i++)
+            {
+                string clockhoursPerDay;
+                if (list_days[i].Length < 8)
+                {
+                    clockhoursPerDay = list_days[i] + "\t\t" + clockHours[i];
+                    result.Add(clockhoursPerDay);
+                }
+                else
+                {
+                    clockhoursPerDay = list_days[i] + "\t" + clockHours[i];
+                    result.Add(clockhoursPerDay);
+                }
+            }
+            return result;
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace EMS_System.Util
 {
@@ -15,7 +16,7 @@ namespace EMS_System.Util
         public DatabaseHandler()
         {
             conn = new MySqlConnection();
-            conn.ConnectionString = "server=localhost;user id=root;database=db_ems_bcsi";
+            conn.ConnectionString = "server=localhost;user id=root;database=db_ems_bcsi;SslMode=none";
         }
 
         public DatabaseHandler(string connectionString)
@@ -77,6 +78,7 @@ namespace EMS_System.Util
                 cmd.Parameters.AddWithValue("employee_Name", employee_Name);
                 cmd.Parameters.AddWithValue("employee_Password", employee_Password);
                 result = (int)cmd.ExecuteScalar();
+
             }
             return result;
         }
@@ -184,7 +186,7 @@ namespace EMS_System.Util
 
             using (MySqlCommand cmd = new MySqlCommand(@"
             SELECT
-                operatinghours_MondayStartTime, operatinghours_MondayEndTime, operatinghours_TuesdayStartTime, operatinghours_TuesdayEndTime, operatinghours_WednesdayStartTime, operatinghours_WednesdayEndTime, operatinghours_ThursdayStartTime, operatinghours_ThursdayEndTime, operatinghours_FridayStartTime, operatinghours_FridayEndTime
+                TIME_FORMAT(operatinghours_MondayStartTime, '%H:%i'), TIME_FORMAT(operatinghours_MondayEndTime, '%H:%i'), TIME_FORMAT(operatinghours_TuesdayStartTime, '%H:%i'), TIME_FORMAT(operatinghours_TuesdayEndTime, '%H:%i'), TIME_FORMAT(operatinghours_WednesdayStartTime, '%H:%i'), TIME_FORMAT(operatinghours_WednesdayEndTime, '%H:%i'), TIME_FORMAT(operatinghours_ThursdayStartTime, '%H:%i'), TIME_FORMAT(operatinghours_ThursdayEndTime, '%H:%i'), TIME_FORMAT(operatinghours_FridayStartTime, '%H:%i'), TIME_FORMAT(operatinghours_FridayEndTime, '%H:%i')
             FROM
                 tbl_operatinghours
             WHERE
@@ -200,6 +202,76 @@ namespace EMS_System.Util
                     }
                 }
             }
+            return result;
+        }
+
+        public bool Checkin(int employee_ID)
+        {
+            bool done;
+
+            using (MySqlCommand cmd = new MySqlCommand(@"
+            INSERT INTO
+                tbl_checkin (checkin_Date, checkin_Time, employee_ID)
+            VALUES
+                (@date, @time, @employee_ID)", this.GetConnection()))
+            {
+                cmd.Parameters.AddWithValue("date", DateTime.Now.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("time", DateTime.Now.ToString("hh:mm:ss tt"));
+                cmd.Parameters.AddWithValue("employee_ID", employee_ID);
+
+                try
+                {
+                    done = (Int64)cmd.ExecuteNonQuery() > 0;
+                }
+                catch (Exception e)
+                {
+                    done = false;
+                    MessageBox.Show(e.ToString());
+                }
+            }
+
+            return done;
+        }
+
+        public bool Checkout(int employee_ID)
+        {
+            bool done;
+
+            using (MySqlCommand cmd = new MySqlCommand(@"
+            INSERT INTO
+                tbl_checkout (checkout_Date, checkout_Time, employee_ID)
+            VALUES
+                (@date, @time, @employee_ID)", this.GetConnection()))
+            {
+                cmd.Parameters.AddWithValue("date", DateTime.Now.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("time", DateTime.Now.ToString("hh:mm:ss tt"));
+                cmd.Parameters.AddWithValue("employee_ID", employee_ID);
+
+                try
+                {
+                    done = (Int64)cmd.ExecuteNonQuery() > 0;
+                }
+                catch (Exception e)
+                {
+                    done = false;
+                    MessageBox.Show(e.ToString());
+                }
+            }
+
+            return done;
+        }
+
+        public ObservableCollection<string> GetAbsence(string employee_ID)
+        {
+            ObservableCollection<string> result = new ObservableCollection<string>();
+
+            using (MySqlCommand cmd = new MySqlCommand(@"
+            
+            ", this.GetConnection()))
+            {
+
+            }
+
             return result;
         }
     }
