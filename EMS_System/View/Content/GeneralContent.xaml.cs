@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EMS_System.Util;
 
 namespace EMS_System.View.Content
 {
@@ -23,6 +24,16 @@ namespace EMS_System.View.Content
         public GeneralContent()
         {
             InitializeComponent();
+            LoadText();
+        }
+
+        public void LoadText()
+        {
+            txtblck_ClockhoursHeader.Text = XMLReader.GetText("ClockHoursHeader");
+            txtblck_PresenceHeader.Text = XMLReader.GetText("PresenceHeader");
+            txtblck_ProflowHeader.Text = XMLReader.GetText("ProflowHeader");
+            txtblck_AbsenceHeader.Text = XMLReader.GetText("AbsenceHeader");
+            txtblck_OvertimeHeader.Text = XMLReader.GetText("OvertimeHeader");
         }
     }
 }

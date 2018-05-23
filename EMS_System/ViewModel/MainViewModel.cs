@@ -13,12 +13,14 @@ namespace EMS_System.ViewModel
 
         /* views */
         private readonly AbcenseContent _abcenseContent;
+        private readonly AdminContent _adminContent;
         private readonly GeneralContent _generalContent;
         private readonly ProfileContent _profileContent;
         private readonly SearchContent _searchContent;
 
         /* view models */
         private readonly AbcenseContentViewModel _abcenseContentViewModel = new AbcenseContentViewModel();
+        private readonly AdminContentViewModel _adminContentViewModel = new AdminContentViewModel();
         private readonly GeneralContentViewModel _generalContentViewModel = new GeneralContentViewModel();
         private readonly ProfileContentViewModel _profileContentViewModel = new ProfileContentViewModel();
         private readonly SearchContentViewModel _searchContentViewModel = new SearchContentViewModel();
@@ -26,11 +28,13 @@ namespace EMS_System.ViewModel
         public MainViewModel()
         {
             _abcenseContent = new AbcenseContent {DataContext = _abcenseContentViewModel};
+            _adminContent = new AdminContent {DataContext = _adminContentViewModel};
             _generalContent = new GeneralContent {DataContext = _generalContentViewModel};
             _profileContent = new ProfileContent {DataContext = _profileContentViewModel};
             _searchContent = new SearchContent {DataContext = _searchContentViewModel};
 
             AbcenseNavigationCommand = new RelayCommand(AbcenseNavigationCommandExecute);
+            AdminNavigationCommand = new RelayCommand(AdminNavigationCommandExecute);
             GeneralNavigationCommand = new RelayCommand(GeneralNavigationCommandExecute);
             ProfileNavigationCommand = new RelayCommand(ProfileNavigationCommandExecute);
             SearchCommand = new RelayCommand(SearchCommandExecute, SearchCommandCanExecute);
@@ -64,6 +68,8 @@ namespace EMS_System.ViewModel
 
         public ICommand ProfileNavigationCommand { get; private set; }
 
+        public ICommand AdminNavigationCommand { get; private set; }
+
         public ICommand SearchCommand { get; private set; }
 
         private void AbcenseNavigationCommandExecute(object searchParamter)
@@ -79,6 +85,11 @@ namespace EMS_System.ViewModel
         private void ProfileNavigationCommandExecute(object searchParamter)
         {
             MainContentElement = _profileContent;
+        }
+
+        private void AdminNavigationCommandExecute(object searchParamter)
+        {
+            MainContentElement = _adminContent;
         }
 
         private void SearchCommandExecute(object searchParamter)

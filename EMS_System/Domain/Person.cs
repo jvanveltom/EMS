@@ -11,7 +11,6 @@ namespace EMS_System.Domain
         // Roep je aan bij profielpagina en in zoekresultaten
         private string _name;
         private string _address;
-        private string _department;
         private string _zipcode;
         private int _overtime;
         private object _photo;
@@ -19,9 +18,12 @@ namespace EMS_System.Domain
         // Triggert een event wanneer de collectie wijzigd (niet de items in de lijst zitten)
         // BV. iets toevoegen / weggooien = trigger, item binnen de collectie wijzigd = geen trigger
         private ObservableCollection<string> _profileData;
-        private ObservableCollection<string> _functions;
+        private ObservableCollection<string> _function;
         private ObservableCollection<string> _residence;
         private ObservableCollection<string> _clockHours;
+        private ObservableCollection<string> _absence;
+        private ObservableCollection<string> _department;
+        private ObservableCollection<string> _presence;
 
         // Constructor
         public Person()
@@ -62,6 +64,16 @@ namespace EMS_System.Domain
             }
         }
 
+        public ObservableCollection<string> Presence
+        {
+            get { return _presence; }
+            set
+            {
+                _presence = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string Zipcode
         {
             get { return _zipcode; }
@@ -92,7 +104,7 @@ namespace EMS_System.Domain
             }
         }
 
-        public string Department
+        public ObservableCollection<string> Department
         {
             get { return _department; }
             set
@@ -100,6 +112,16 @@ namespace EMS_System.Domain
                 _department = value;
                 OnPropertyChanged();
                 //OnPropertyChanged(nameof(DeparmentsAndFunctions));
+            }
+        }
+
+        public ObservableCollection<string> Absence
+        {
+            get { return _absence; }
+            set
+            {
+                _absence = value;
+                OnPropertyChanged();
             }
         }
 
@@ -115,29 +137,30 @@ namespace EMS_System.Domain
 
         public ObservableCollection<string> Functions
         {
-            get { return _functions; }
+            get { return _function; }
             set
             {
-                _functions = value;
+                _function = value;
                 OnPropertyChanged();
                 //OnPropertyChanged(nameof(DeparmentsAndFunctions));
             }
         }
 
-        public ObservableCollection<string> DeparmentsAndFunctions
-        {
-            get
-            {
-                // We gebruiken een list want we hoeven heb nog niet te triggeren bij een verandering
-                var result = new List<string>();
-                result.Add(Department);
-                result.AddRange(Functions.OrderBy(functions => functions));
+        //public ObservableCollection<string> DeparmentsAndFunctions
+        //{
+        //    get
+        //    {
+        //        // We gebruiken een list want we hoeven heb nog niet te triggeren bij een verandering
+        //        var result = new List<string>();
+        //        result.Add(Department);
+        //        result.AddRange(Functions.OrderBy(functions => functions));
 
-                return new ObservableCollection<string>(result);
-            }
-        }
+        //        return new ObservableCollection<string>(result);
+        //    }
+        //}
 
-        public ObservableCollection<string> PersonalData
+        public ObservableCollection<string> 
+            alData
         {
             get
             {

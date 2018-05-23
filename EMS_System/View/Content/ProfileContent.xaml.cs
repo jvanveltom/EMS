@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EMS_System.Util;
 
 namespace EMS_System.View.Content
 {
@@ -23,6 +24,13 @@ namespace EMS_System.View.Content
         public ProfileContent()
         {
             InitializeComponent();
+            LoadText();
+        }
+
+        public void LoadText()
+        {
+            txtblck_DepartmentHeader.Text = XMLReader.GetText("DepartmentHeader");
+            txtblck_FunctionHeader.Text = XMLReader.GetText("FunctionHeader");
         }
     }
 }

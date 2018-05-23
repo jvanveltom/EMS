@@ -34,9 +34,9 @@
                         <RowDefinition Height="5*"/>
                         <RowDefinition Height="70*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" DockPanel.Dock="Top" Text="Department" Style="{StaticResource TextBlock.Header}"/>
-                    <ListView Grid.Row="1" ItemsSource="{Binding Person.DeparmentsAndFunctions}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
-                    <TextBlock Grid.Row="2" Text="Functions" Style="{StaticResource TextBlock.Header}"/>
+                    <TextBlock Name="txtblck_DepartmentHeader" Grid.Row="0" DockPanel.Dock="Top" Style="{StaticResource TextBlock.Header}"/>
+                    <ListView Grid.Row="1" ItemsSource="{Binding Person.Department}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                    <TextBlock Name="txtblck_FunctionHeader" Grid.Row="2" Style="{StaticResource TextBlock.Header}"/>
                     <ListView Grid.Row="3" ItemsSource="{Binding Person.Functions}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
                 </Grid>
             </DockPanel>

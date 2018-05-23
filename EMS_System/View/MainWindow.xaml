@@ -27,18 +27,20 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <DockPanel Grid.Row="0">
                 <Button Name="btn_Search" DockPanel.Dock="Right" Command="{Binding SearchCommand}" CommandParameter="{Binding Text, ElementName=SearchTextBox}" Style="{StaticResource Button.Search}"/>
-                <control:SearchTextBox x:Name="SearchTextBox" BackgroundText="Search Person" Text="{Binding SearchInput}" KeyDown="SearchOnEnter"/>
+                <control:SearchTextBox x:Name="SearchTextBox" Text="{Binding SearchInput}" KeyDown="SearchOnEnter"/>
             </DockPanel>
 
             <!-- Als je op de button klikt, gebruik je button.navigation. Deze navigeerd naar de gewenste content -->
-            <Button Grid.Row="2" Height="30" FontSize="15px"  Content="Home" Style="{StaticResource Button.Navigation}" Command="{Binding GeneralNavigationCommand}"/>
-            <Button Grid.Row="3" Height="30" FontSize="15px" Content="Abcense" Style="{StaticResource Button.Navigation}" Command="{Binding AbcenseNavigationCommand}"/>
-            <Button Grid.Row="4" Height="30" FontSize="15px" Content="Profile" Style="{StaticResource Button.Navigation}" Command="{Binding ProfileNavigationCommand}"/>
+            <Button Name="btn_HomeMenuPage" Grid.Row="2" Height="30" FontSize="15px" Style="{StaticResource Button.Navigation}" Command="{Binding GeneralNavigationCommand}"/>
+            <Button Name="btn_AbsenceMenuPage" Grid.Row="3" Height="30" FontSize="15px" Style="{StaticResource Button.Navigation}" Command="{Binding AbcenseNavigationCommand}"/>
+            <Button Name="btn_ProfileMenuPage" Grid.Row="4" Height="30" FontSize="15px" Style="{StaticResource Button.Navigation}" Command="{Binding ProfileNavigationCommand}"/>
+            <Button Name="btn_AdminMenuPage" Grid.Row="5" Height="30" FontSize="15px" Style="{StaticResource Button.Navigation}" Command="{Binding AdminNavigationCommand}"/>
         </Grid>
     </Grid>
 </Window>

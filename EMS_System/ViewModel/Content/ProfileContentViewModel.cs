@@ -15,13 +15,14 @@ namespace EMS_System.ViewModel.Content
 
         public ProfileContentViewModel()
         {
+            System.Console.WriteLine("Employee ID from mainwindow: {0}", View.MainWindow.employee_ID);
             dbh.OpenConnection();
             Person = new Person
             {
-                Name = dbh.GetUsername(1),
-                Department = "R&D",
-                ProfileData = new ObservableCollection<string> { dbh.GetUsername(1), dbh.GetEmployeeAddress(1), dbh.GetEmployeeZipcode(1), dbh.GetEmployeeEmail(1) },
-                Functions = new ObservableCollection<string> { "Developer", "Salesman" }
+                Name = dbh.GetUsername(View.MainWindow.employee_ID),
+                Department = dbh.GetDepartment(View.MainWindow.employee_ID),
+                ProfileData = new ObservableCollection<string> { dbh.GetUsername(View.MainWindow.employee_ID), dbh.GetEmployeeAddress(View.MainWindow.employee_ID), dbh.GetEmployeeZipcode(View.MainWindow.employee_ID), dbh.GetEmployeeEmail(View.MainWindow.employee_ID) },
+                Functions = dbh.GetFunction(View.MainWindow.employee_ID)
             };
             dbh.CloseConnection();
         }
@@ -34,7 +35,7 @@ namespace EMS_System.ViewModel.Content
                 _person = value;
                 OnPropertyChanged();
 
-                ProfileHeader = $"Profile: {Person.Name}";
+                ProfileHeader = XMLReader.GetText("ProfileHeader") + $": {Person.Name}";
             }
         }
 

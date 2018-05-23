@@ -22,22 +22,22 @@ namespace EMS_System.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        public int employee_ID;
+        public static int employee_ID;
 
         DatabaseHandler dbh;
         public MainWindow(int emp_ID)
         {
-            InitializeComponent();
-            dbh = new DatabaseHandler();
             employee_ID = emp_ID;
+            InitializeComponent();
+            LoadText();
+            dbh = new DatabaseHandler();
 
-            //Console.WriteLine(GetLoggedInUserID());
+            AdminCheck(employee_ID.ToString());
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-
             dbh.OpenConnection();
             dbh.Checkout(employee_ID);
             dbh.CloseConnection();
@@ -56,6 +56,33 @@ namespace EMS_System.View
             {
                 btn_Search.Command.Execute(SearchTextBox.Text);
             }
+        }
+
+        private void AdminCheck(string employee_ID)
+        {
+            int adminRights;
+
+            dbh.OpenConnection();
+            adminRights = dbh.CheckForAdminRights(employee_ID);
+
+            if (adminRights == 1)
+            {
+                btn_AdminMenuPage.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btn_AdminMenuPage.Visibility = Visibility.Hidden;
+            }
+            dbh.CloseConnection();
+        }
+
+        public void LoadText()
+        {
+            btn_HomeMenuPage.Content = XMLReader.GetText("MenuHome");
+            btn_AbsenceMenuPage.Content = XMLReader.GetText("MenuAbsence");
+            btn_ProfileMenuPage.Content = XMLReader.GetText("MenuProfile");
+            btn_AdminMenuPage.Content = XMLReader.GetText("MenuAdmin");
+            SearchTextBox.BackgroundText = XMLReader.GetText("SearchTextboxPlaceHolder");
         }
     }
 }

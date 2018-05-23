@@ -17,15 +17,16 @@ namespace EMS_System.ViewModel.Content
             dbh.OpenConnection();
             Person = new Person
             {
-                Name = "Henk",
+                Name = dbh.GetUsername(View.MainWindow.employee_ID),
                 Overtime = 5,
-                Residence = new ObservableCollection<string> { "Zevenbergen", "Breda" },
-                ProfileData = new ObservableCollection<string> { "Data 1", "Data 2" },
-                //Deparments = new ObservableCollection<string> { "Department 1", "Department 2" },
-                ClockHours = LoadClockhours(dbh.GetClockHours(1)),
-                Functions = new ObservableCollection<string> { "Function 1" }
+                Residence = new ObservableCollection<string> { dbh.GetEmployeeResidence(View.MainWindow.employee_ID) },
+                Absence = LoadAbsence(dbh.GetAbsence(View.MainWindow.employee_ID)),
+                ProfileData = new ObservableCollection<string> { dbh.GetUsername(View.MainWindow.employee_ID), dbh.GetEmployeeAddress(View.MainWindow.employee_ID), dbh.GetEmployeeZipcode(View.MainWindow.employee_ID), dbh.GetEmployeeEmail(View.MainWindow.employee_ID) },
+                ClockHours = LoadClockhours(dbh.GetClockHours(View.MainWindow.employee_ID)),
+                Presence = LoadPresence(View.MainWindow.employee_ID)
             };
             dbh.CloseConnection();
+            System.Console.WriteLine(XMLReader.GetText("Workdays"));
         }
            
         public Person Person
@@ -36,7 +37,7 @@ namespace EMS_System.ViewModel.Content
                 _person = value;
                 OnPropertyChanged();
 
-                ProfileHeader = $"Profile: {Person.Name}";
+                ProfileHeader = XMLReader.GetText("ProfileHeader") + $": {Person.Name}";
             }
         }
 
@@ -70,6 +71,47 @@ namespace EMS_System.ViewModel.Content
                     result.Add(clockhoursPerDay);
                 }
             }
+            return result;
+        }
+
+        public ObservableCollection<string> LoadAbsence(ObservableCollection<ObservableCollection<string>> absence)
+        {
+            ObservableCollection<string> result = new ObservableCollection<string>();
+            ObservableCollection<string> absenceDates = absence[0];
+            ObservableCollection<string> absenceAuthorization = absence[1];
+            ObservableCollection<string> convertedAbsenceAuthorization = new ObservableCollection<string>();
+
+            foreach (string authorization in absenceAuthorization)
+            {
+                if (authorization == "0")
+                    convertedAbsenceAuthorization.Add("Unauthorized");
+                else
+                    convertedAbsenceAuthorization.Add("Authorized");
+            }
+
+            for (int i = 0; i < absenceDates.Count; i++)
+            {
+                result.Add(absenceDates[i].ToString() + "\t\t" + convertedAbsenceAuthorization[i]);
+            }
+
+            return result;
+        }
+
+        public ObservableCollection<string> LoadPresence(int employee_ID)
+        {
+            ObservableCollection<string> result = new ObservableCollection<string>();
+            ObservableCollection<ObservableCollection<string>> checkins = dbh.GetCheckin(employee_ID);
+            ObservableCollection<ObservableCollection<string>> checkouts = dbh.GetCheckOut(employee_ID);
+
+            ObservableCollection<string> checkinDates = checkins[0];
+            ObservableCollection<string> checkinTimes = checkins[1];
+            ObservableCollection<string> checkoutTimes = checkouts[1];
+
+            for (int i = 0; i < checkoutTimes.Count; i++)
+            {
+                result.Add(checkinDates[i].ToString() + "\t\t" + checkinTimes[i].ToString() + "-" + checkoutTimes[i].ToString());
+            }
+
             return result;
         }
     }

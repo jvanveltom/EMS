@@ -28,6 +28,7 @@ namespace EMS_System.View
         public LoginWindow()
         {
             InitializeComponent();
+            LoadText();
         }
 
         private void TextBox_MouseDown(object sender, MouseButtonEventArgs e)
@@ -100,6 +101,22 @@ namespace EMS_System.View
             }
             return sb.ToString();
 
+        }
+
+        public void LoadText()
+        {
+            txtblck_LoginHeader.Text = XMLReader.GetText("LoginHeader");
+            btn_Login.Content = XMLReader.GetText("LoginButton");
+        }
+
+        private void txtb_Username_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as TextBox).SelectAll();
+        }
+
+        private void txtb_Password_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as PasswordBox).SelectAll();
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EMS_System.Util;
 
 namespace EMS_System.View.Content
 {
@@ -23,6 +24,12 @@ namespace EMS_System.View.Content
         public SearchContent()
         {
             InitializeComponent();
+            LoadText();
+        }
+
+        public void LoadText()
+        {
+            txtblck_SearchresultsHeader.Text = XMLReader.GetText("SearchresultsHeader");
         }
     }
 }

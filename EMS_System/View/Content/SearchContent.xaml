@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
 
          <!-- Roep de template textblock.header aan en de titel moet "Searchresults" zijn -->
-        <TextBlock Text="Searchresults" Style="{StaticResource TextBlock.Header}"/>
+        <TextBlock Name="txtblck_SearchresultsHeader" Style="{StaticResource TextBlock.Header}"/>
         <!-- ListView met alle benodigde items -->
         <ListView Grid.Row="1" SelectionMode="Single" ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}" ItemTemplate="{StaticResource PersonTemplate}"/>
     </Grid>

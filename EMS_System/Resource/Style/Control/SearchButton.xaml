@@ -28,7 +28,6 @@
                             <ColumnDefinition Width="3"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="1" Text="Search" Foreground="White" VerticalAlignment="Center"/>
                         <Image Grid.Column="3" Source="{StaticResource Icon}" Width="10"/>
                     </Grid>
                 </ControlTemplate>

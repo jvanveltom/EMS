@@ -188,8 +188,10 @@
       <DependentUpon>SearchControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\NotifyPropertyChangedBase.cs" />
+    <Compile Include="Util\XMLReader.cs" />
     <Compile Include="ViewModel\Content\AbcenseContentViewModel.cs" />
     <Compile Include="ViewModel\Content\GeneralContentViewModel.cs" />
+    <Compile Include="ViewModel\Content\AdminContentViewModel.cs" />
     <Compile Include="ViewModel\Content\ProfileContentViewModel.cs" />
     <Compile Include="ViewModel\Content\SearchContentViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -200,6 +202,9 @@
     <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="View\Content\GeneralContent.xaml.cs">
       <DependentUpon>GeneralContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Content\AdminContent.xaml.cs">
+      <DependentUpon>AdminContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Content\ProfileContent.xaml.cs">
       <DependentUpon>ProfileContent.xaml</DependentUpon>
@@ -285,6 +290,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Content\AdminContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Content\ProfileContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -323,6 +332,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

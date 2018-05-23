@@ -9,41 +9,41 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="27*"/>
-            <ColumnDefinition Width="36*"/>
-            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="39*"/>
         </Grid.ColumnDefinitions>
 
 
         <DockPanel Grid.Column="0">
-            <TextBlock DockPanel.Dock="Top" Text="Clock hours" Style="{StaticResource TextBlock.Header}"/>
+            <TextBlock Name="txtblck_ClockhoursHeader" DockPanel.Dock="Top" Style="{StaticResource TextBlock.Header}"/>
             <ListView ItemsSource="{Binding Person.ClockHours}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
         </DockPanel>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="25*"/>
+                <RowDefinition Height="28*"/>
                 <RowDefinition Height="25*"/>
                 <RowDefinition Height="25*"/>
                 <RowDefinition Height="25*"/>
             </Grid.RowDefinitions>
 
             <DockPanel Grid.Row="0">
-                <TextBlock DockPanel.Dock="Top" Text="Presence" Style="{StaticResource TextBlock.Header}"/>
-                <ListView ItemsSource="{Binding Person.Deparments}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                <TextBlock Name="txtblck_PresenceHeader" DockPanel.Dock="Top" Style="{StaticResource TextBlock.Header}"/>
+                <ListView ItemsSource="{Binding Person.Presence}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
             </DockPanel>
 
             <DockPanel Grid.Row="1">
-                <TextBlock DockPanel.Dock="Top" Text="Proflow" Style="{StaticResource TextBlock.Header}"/>
+                <TextBlock Name="txtblck_ProflowHeader" DockPanel.Dock="Top" Style="{StaticResource TextBlock.Header}"/>
                 <ListView ItemsSource="{Binding Person.Functions}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
             </DockPanel>
 
             <DockPanel Grid.Row="2">
-                <TextBlock DockPanel.Dock="Top" Text="Absence" Style="{StaticResource TextBlock.Header}"/>
-                <ListView ItemsSource="{Binding Person.DeparmentsAndFunctions}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                <TextBlock Name="txtblck_AbsenceHeader" DockPanel.Dock="Top" Style="{StaticResource TextBlock.Header}"/>
+                <ListView ItemsSource="{Binding Person.Absence}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
             </DockPanel>
 
             <DockPanel Grid.Row="3">
-                <TextBlock DockPanel.Dock="Top" Text="Overtime" Style="{StaticResource TextBlock.Header}"/>
+                <TextBlock Name="txtblck_OvertimeHeader" DockPanel.Dock="Top" Style="{StaticResource TextBlock.Header}"/>
                 <ListView ItemsSource="{Binding Person.Overtime}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
             </DockPanel>
         </Grid>
@@ -52,10 +52,10 @@
             <TextBlock DockPanel.Dock="Top" Text="{Binding ProfileHeader}" Style="{StaticResource TextBlock.Header}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50*"/>
-                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="54*"/>
                 </Grid.ColumnDefinitions>
-                <ListView Grid.Column="0" ItemsSource="{Binding Person.PersonalData}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
+                <ListView Grid.Column="0" ItemsSource="{Binding Person.ProfileData}" Style="{StaticResource ListView.Alternating}" ItemContainerStyle="{StaticResource ListViewItem.Alternating}"/>
                 <Grid Grid.Column="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25*"/>

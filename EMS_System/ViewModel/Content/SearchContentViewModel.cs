@@ -18,16 +18,6 @@ namespace EMS_System.ViewModel.Content
             ItemsSource = dbh.SearchForEmployee(searchParamter);
 
             dbh.CloseConnection();
-            //ItemsSource = new ObservableCollection<Person>
-            //{
-            //    foreach (string str in dbh.SearchForEmployee(searchParamter))
-            //{
-
-            //}
-            //    //new Person { Name = $"{searchParamter} 0"},
-            //    //new Person { Name = $"{searchParamter} 1"},
-            //    //new Person { Name = $"{searchParamter} 2"}
-            //};
         }
     }
 }
